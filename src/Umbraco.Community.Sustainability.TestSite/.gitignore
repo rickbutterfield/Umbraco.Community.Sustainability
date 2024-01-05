@@ -479,3 +479,4 @@ appsettings-schema.json
 
 # Test Site App_Plugins packages folder (exclude here as in Umbraco.Community.Sustainability project)
 /App_Plugins/Umbraco.Community.Sustainability/
+/App_Plugins/Bergmania.OpenStreetMap/

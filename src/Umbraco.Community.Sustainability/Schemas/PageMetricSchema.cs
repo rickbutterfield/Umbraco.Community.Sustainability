@@ -18,16 +18,25 @@ namespace Umbraco.Community.Sustainability.Schemas
         public int NodeId { get; set; }
 
         [Column("RequestedBy")]
-        public string RequestedBy { get; set; }
+        [NullSetting(NullSetting = NullSettings.Null)]
+        public string? RequestedBy { get; set; }
 
         [Column("RequestDate")]
         public DateTime RequestDate { get; set; }
 
-        [Column("PageWeight")]
-        public decimal PageWeight { get; set; }
+        [Column("TotalSize")]
+        public decimal TotalSize { get; set; }
 
-        [SpecialDbType(SpecialDbTypes.NVARCHARMAX)]
+        [Column("TotalEmissions")]
+        public decimal TotalEmissions { get; set; }
+
+        [Column("CarbonRating")]
         [NullSetting(NullSetting = NullSettings.Null)]
+        public string? CarbonRating { get; set; }
+
+        [Column("PageData")]
+        [NullSetting(NullSetting = NullSettings.Null)]
+        [SpecialDbType(SpecialDbTypes.NTEXT)]
         public string? PageData { get; set; }
     }
 }

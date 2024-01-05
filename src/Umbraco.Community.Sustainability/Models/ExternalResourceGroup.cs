@@ -3,7 +3,6 @@ using Umbraco.Community.Sustainability.Extensions;
 
 namespace Umbraco.Community.Sustainability.Models
 {
-
     public class ExternalResourceGroup
     {
         public ResourceGroupType Type { get; set; }
@@ -17,6 +16,18 @@ namespace Umbraco.Community.Sustainability.Models
             Type = type;
             Name = type.GetDisplayName();
         }
+
+        public static string GetInitiatorType(ResourceGroupType groupType)
+        {
+            return groupType switch
+            {
+                ResourceGroupType.Images => "img",
+                ResourceGroupType.Scripts => "script",
+                ResourceGroupType.Styles => "link",
+                ResourceGroupType.Other => "css",
+                _ => string.Empty,
+            };
+        }
     }
 
     public enum ResourceGroupType
@@ -25,7 +36,9 @@ namespace Umbraco.Community.Sustainability.Models
         Images,
         [Display(Name = "Scripts")]
         Scripts,
-        [Display(Name = "Stylesheets")]
-        Stylesheets
+        [Display(Name = "Styles")]
+        Styles,
+        [Display(Name = "Other")]
+        Other
     }
 }

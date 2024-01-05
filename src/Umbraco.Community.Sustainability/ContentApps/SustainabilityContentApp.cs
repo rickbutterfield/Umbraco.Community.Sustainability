@@ -1,5 +1,3 @@
-using Umbraco.Cms.Core.Composing;
-using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Cms.Core.Models;
 using Umbraco.Cms.Core.Models.ContentEditing;
 using Umbraco.Cms.Core.Models.Membership;
@@ -23,9 +21,9 @@ namespace Umbraco.Community.Sustainability.ContentApps
             return new ContentApp
             {
                 Alias = "sustainabilityCheck",
-                Name = "Emissions",
-                Icon = "icon-flowerpot",
-                View = "/App_Plugins/Umbraco.Community.Sustainability/views/sustainability-check.html",
+                Name = "Sustainability",
+                Icon = "icon-eco",
+                View = "/App_Plugins/Umbraco.Community.Sustainability/views/sustainability-content-app.html",
                 Weight = 0
             };
         }

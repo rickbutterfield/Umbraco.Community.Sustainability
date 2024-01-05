@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Umbraco.Cms.Core.Events;
 using Umbraco.Cms.Core.Migrations;
 using Umbraco.Cms.Core.Notifications;
@@ -49,7 +44,8 @@ namespace Umbraco.Community.Sustainability.Notifications
             // This is the steps we need to take
             // Each step in the migration adds a unique value
             migrationPlan.From(string.Empty)
-                .To<AddPageMetricsTable>("pagemetrics-init");
+                .To<AddPageMetricsTable>("pagemetrics-init")
+                .To<AddCarbonRating>("pagemetrics-carbonrating");
 
             // Go and upgrade our site (Will check if it needs to do the work or not)
             // Based on the current/latest step

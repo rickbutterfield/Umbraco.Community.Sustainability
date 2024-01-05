@@ -17,7 +17,7 @@ namespace Umbraco.Community.Sustainability
                     // List any Script files
                     // Urls should start '/App_Plugins/Umbraco.Community.Sustainability/' not '/wwwroot/Umbraco.Community.Sustainability/', e.g.
                     "/App_Plugins/Umbraco.Community.Sustainability/js/sustainability.resource.js",
-                    "/App_Plugins/Umbraco.Community.Sustainability/js/sustainability-check.controller.js"
+                    "/App_Plugins/Umbraco.Community.Sustainability/js/sustainability-content-app.controller.js"
                 },
                 Stylesheets = new string[]
                 {

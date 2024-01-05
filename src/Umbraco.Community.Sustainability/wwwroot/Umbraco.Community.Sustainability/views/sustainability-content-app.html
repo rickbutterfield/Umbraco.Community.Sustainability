@@ -1,0 +1,67 @@
+<div ng-controller="Umbraco.Sustainability.Controller as vm">
+  <div class="umb-logviewer">
+    <div class="umb-logviewer__main-content">
+      <umb-box ng-if="loading">
+        <umb-box-header title="Loading sustainability report..."></umb-box-header>
+        <umb-box-content>
+          <p>It looks like you haven't run a report on this page yet. Click the button below to get started.</p>
+          <umb-button action="vm.clickButton()"
+                      type="button"
+                      button-style="action"
+                      state="vm.buttonState"
+                      label="Run sustainability report"
+                      disabled="vm.buttonState === 'busy'">
+          </umb-button>
+        </umb-box-content>
+      </umb-box>
+      <umb-box ng-repeat="group in sustainabilityData.resourceGroups" ng-if="!loading">
+        <umb-box-header title="{{group.name}}" description="Total size: {{(group.totalSize / 1024).toFixed(2)}}kb"></umb-box-header>
+        <umb-box-content>
+          <ul>
+            <li ng-repeat="resource in group.resources">
+              {{resource.url}} ({{(resource.size / 1024).toFixed(2)}}kb)
+            </li>
+          </ul>
+        </umb-box-content>
+      </umb-box>
+    </div>
+    <div class="umb-logviewer__sidebar" ng-if="!loading">
+      <umb-box>
+        <umb-box-header title="Sustainability report"></umb-box-header>
+        <umb-box-content>
+          <p>Last tested: {{lastTested}}</p>
+          <umb-button action="vm.clickButton()"
+                      type="button"
+                      button-style="action"
+                      state="vm.buttonState"
+                      label="Run again"
+                      disabled="vm.buttonState === 'busy'">
+          </umb-button>
+        </umb-box-content>
+      </umb-box>
+
+      <div class="umb-box-row">
+        <umb-box>
+          <umb-box-header title="Page size"></umb-box-header>
+          <umb-box-content>{{(sustainabilityData.totalSize / 1024).toFixed(2)}}kb</umb-box-content>
+        </umb-box>
+        <umb-box>
+          <umb-box-header title="CO₂ per page view"></umb-box-header>
+          <umb-box-content>{{sustainabilityData.totalEmissions.toFixed(4)}}g</umb-box-content>
+        </umb-box>
+      </div>
+
+      <!--<umb-box>
+        <umb-box-header title="Breakdown by type"></umb-box-header>
+        <umb-box-content class="block-form">
+          <canvas chart-doughnut
+                  chart-data="vm.datasets"
+                  chart-labels="vm.labels"
+                  chart-colours="vm.colours"
+                  chart-options="vm.options">
+          </canvas>
+        </umb-box-content>
+      </umb-box>-->
+    </div>
+  </div>
+</div>
