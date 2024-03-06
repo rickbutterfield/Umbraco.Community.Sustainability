@@ -20,7 +20,10 @@ namespace Umbraco.Community.Sustainability.Services
             // Create a new incognito browser context and go to web page
             var context = await browser.NewContextAsync();
             var page = await context.NewPageAsync();
-            await page.GotoAsync(url);
+            await page.GotoAsync(url, new PageGotoOptions()
+            {
+                WaitUntil = WaitUntilState.DOMContentLoaded
+            });
 
             // Add our script to report data
             await page.AddScriptTagAsync(new PageAddScriptTagOptions()
@@ -34,18 +37,11 @@ namespace Umbraco.Community.Sustainability.Services
             var sustainabilityData = JsonSerializer.Deserialize<SustainabilityData>(data);
 
             var resourceGroups = new List<ExternalResourceGroup>();
-
-            var scripts = GetExternalResourceGroup(ResourceGroupType.Scripts, sustainabilityData.resources);
-            resourceGroups.Add(scripts);
-
-            var images = GetExternalResourceGroup(ResourceGroupType.Images, sustainabilityData.resources);
-            resourceGroups.Add(images);
-
-            var styles = GetExternalResourceGroup(ResourceGroupType.Styles, sustainabilityData.resources);
-            resourceGroups.Add(styles);
-
-            var other = GetExternalResourceGroup(ResourceGroupType.Other, sustainabilityData.resources);
-            resourceGroups.Add(other);
+            foreach (ResourceGroupType resourceGroupType in Enum.GetValues(typeof(ResourceGroupType)))
+            {
+                var resources = GetExternalResourceGroup(resourceGroupType, sustainabilityData.resources);
+                resourceGroups.Add(resources);
+            }
 
             await browser.CloseAsync();
 
@@ -61,7 +57,7 @@ namespace Umbraco.Community.Sustainability.Services
         private ExternalResourceGroup GetExternalResourceGroup(ResourceGroupType groupType, IList<Resource> resources)
         {
             var initiator = ExternalResourceGroup.GetInitiatorType(groupType);
-            var resourcesByType = resources.Where(x => x.initiatorType.Equals(initiator));
+            var resourcesByType = resources.Where(x => x.initiatorType.Equals(initiator) && x.transferSize > 0);
 
             var transferSize = 0;
             var resourceList = new List<ExternalResource>();
