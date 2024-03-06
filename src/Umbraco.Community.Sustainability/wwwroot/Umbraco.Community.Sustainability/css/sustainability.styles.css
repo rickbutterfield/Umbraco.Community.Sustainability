@@ -1,0 +1,9 @@
+/* Fix Umbraco Colors */
+
+.umb-sub-views-nav-item .badge.-type-warning {
+  background-color: #f0ac00
+}
+
+.umb-sub-views-nav-item .badge.-type-alert {
+  background-color: #d42054;
+}
