@@ -1,9 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
   <PropertyGroup>
-    <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
+    <TargetFrameworks>net8.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StaticWebAssetBasePath>App_Plugins</StaticWebAssetBasePath>
+    <StaticWebAssetBasePath>/</StaticWebAssetBasePath>
     <ContentTargetFolders>.</ContentTargetFolders>
     <Product>Umbraco.Community.Sustainability</Product>
     <PackageId>Umbraco.Community.Sustainability</PackageId>
@@ -25,21 +25,8 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Playwright" Version="1.40.0" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
-    <PackageReference Include="Umbraco.Cms.Web.Website" Version="[10.0.0, 11.0.0)" />
-    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="[10.0.0, 11.0.0)" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'net7.0'">
-    <PackageReference Include="Umbraco.Cms.Web.Website" Version="[11.0.0, 13.0.0)" />
-    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="[11.0.0, 13.0.0)" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
-    <PackageReference Include="Umbraco.Cms.Web.Website" Version="[13.0.0, 14.0.0)" />
-    <PackageReference Include="Umbraco.Cms.Web.BackOffice" Version="[13.0.0, 14.0.0)" />
+    <PackageReference Include="Umbraco.Cms.Web.Website" Version="14.0.0-beta002" />
+    <PackageReference Include="Umbraco.Cms.Api.Common" Version="14.0.0-beta002" />
   </ItemGroup>
 
   <ItemGroup>

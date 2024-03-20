@@ -1,0 +1,15 @@
+{
+  "$schema": "../umbraco-package-schema.json",
+  "name": "Umbraco.Community.Sustainability",
+  "id": "Umbraco.Community.Sustainability",
+  "version": "1.0.0-alpha.2",
+  "allowTelemetry": true,
+  "extensions": [
+    {
+      "name": "Umbraco.Community.Sustainability.EntryPoint",
+      "alias": "Umbraco.Community.Sustainability.EntryPoint",
+      "type": "entryPoint",
+      "js": "/app_plugins/Umbraco.Community.Sustainability.14/assets.js"
+    }
+  ]
+}

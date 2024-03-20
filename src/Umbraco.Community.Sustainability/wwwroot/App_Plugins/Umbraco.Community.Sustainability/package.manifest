@@ -1,0 +1,21 @@
+{
+    "name": "Umbraco.Community.Sustainability",
+    "version": "1.0.0-alpha.2",
+    "allowPackageTelemetry": true,
+    "contentApps": [
+        {
+            "alias": "sustainabilityCheck",
+            "name": "Sustainability",
+            "icon": "icon-eco",
+            "view": "/App_Plugins/Umbraco.Community.Sustainability/views/sustainability-content-app.html",
+            "weight": 0,
+            "show": [
+                "+content/*"
+            ]
+        }
+    ],
+    "javascript": [
+        "/App_Plugins/Umbraco.Community.Sustainability/js/sustainability.resource.js",
+        "/App_Plugins/Umbraco.Community.Sustainability/js/sustainability-content-app.controller.js"
+    ]
+}
