@@ -2,6 +2,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Cms.Core.Notifications;
+using Umbraco.Community.Sustainability.Configuration;
 using Umbraco.Community.Sustainability.ContentApps;
 using Umbraco.Community.Sustainability.Notifications;
 using Umbraco.Community.Sustainability.Sections;
@@ -30,6 +31,12 @@ namespace Umbraco.Community.Sustainability
 
             builder.Services.AddScoped<IPageMetricService, PageMetricService>();
             builder.Services.AddSingleton<ISustainabilityService, SustainabilityService>();
+
+            builder.Services.AddOptions<MediaLibraryOptions>().Bind(builder.Config.GetSection(MediaLibraryOptions.SectionAlias));
+            builder.Services.AddSingleton<IImageSizeService, ImageSizeService>();
+            builder.Services.AddSingleton<IMediaLibraryService, MediaLibraryService>();
+            builder.AddNotificationHandler<TreeNodesRenderingNotification, MediaTreeNodeRenderingNotificationHandler>();
+
         }
     }
 }

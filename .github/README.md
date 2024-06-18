@@ -49,6 +49,28 @@ Add the package to an existing Umbraco website from nuget:
 
 Once added, a new Content App will be available alongside your Umbraco pages allowing you to trigger a sustainability report.
 
+## Configuration
+
+You will need to add the following configuration to you appSettings.json file. 
+The AcceptedFileTypes are the media types that you can create in the media library, not the file extensions of your files
+
+  ```
+  "Umbraco": {
+    "CMS":{
+        "MediaLibrary" : {
+            "Optimisation":{
+                "Enable" : bool,
+                "AcceptedFileTypes" : 
+                {
+                    "<<Media File Type here>>" : "<<MAX file size in bytes here>>",
+                    "<<Media File Type here>>" : "<<MAX file size in bytes here>>"
+                }
+            }
+        }
+    }
+  }
+  ```
+
 ## Contributing
 
 Contributions to this package are most welcome! Please read the [Contributing Guidelines](CONTRIBUTING.md) for how to get involved.

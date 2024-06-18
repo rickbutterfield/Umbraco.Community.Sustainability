@@ -16,7 +16,7 @@
     <RootNamespace>Umbraco.Community.Sustainability</RootNamespace>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 
-    <VersionPrefix>1.0.3</VersionPrefix>
+    <VersionPrefix>1.0.4</VersionPrefix>
     <VersionSuffix></VersionSuffix>
     <Authors>Umbraco Sustainability Community Team</Authors>
     <Copyright>$([System.DateTime]::UtcNow.ToString(`yyyy`)) © Umbraco Sustainability Community Team</Copyright>
@@ -57,6 +57,5 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-  </ItemGroup>
-  
+  </ItemGroup>  
 </Project>

@@ -25,7 +25,7 @@ namespace Umbraco.Community.Sustainability
                 {
                     // List any Stylesheet files
                     // Urls should start '/App_Plugins/UmbracoCommunitySustainability/' not '/wwwroot/Umbraco.Community.Sustainability/', e.g.
-                    // "/App_Plugins/UmbracoCommunitySustainability/Styles/styles.css"
+                     "/App_Plugins/UmbracoCommunitySustainability/Styles/medialibrary.css"
                 }
             });
         }
